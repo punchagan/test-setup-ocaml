@@ -12,7 +12,7 @@ jobs:
           ocaml-compiler: 5.3.0
           opam-pin: false
           opam-repositories: |
-            default: https://github.com/punchagan/opam-repository.git#fix-conf-libcurl-deps
+            default: https://github.com/punchagan/opam-repository.git#mingw-w64-shims-post-exp
           save-opam-post-run: true
       - name: Run opam tests
         run: |
