@@ -17,7 +17,5 @@ jobs:
       - name: Run opam tests
         run: |
           opam list
-          opam install conf-pkg-config conf-mingw-w64-curl-x86_64
-          opam list
           opam install conf-libcurl
 on: [push, workflow_dispatch]
