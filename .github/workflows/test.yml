@@ -6,15 +6,6 @@ jobs:
         shell: bash
     runs-on: windows-latest
     steps:
-      - name: Configure git to allow long paths, disable autocrlf, and set eol to lf
-        run: |
-          git config --global core.longpaths true
-          git config --global core.autocrlf false
-          git config --global core.eol lf
-      - name: Make checkout speedy
-        run: git config --global fetch.parallel 50
-      - name: Configure git safedir properly
-        run: git config --global --add safe.directory $(pwd)
       - uses: ocaml/setup-ocaml@v3
         with:
           cache-prefix: v2
