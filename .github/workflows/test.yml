@@ -1,0 +1,18 @@
+---
+jobs:
+  build-core:
+    defaults:
+      run:
+        shell: bash
+    runs-on: windows-latest
+    steps:
+      - uses: ocaml/setup-ocaml@v3
+        with:
+          cache-prefix: v2
+          ocaml-compiler: 5.3.0
+          opam-pin: false
+      - name: Run opam tests
+        run: |
+          opam list
+          opam install conf-libcurl
+on: [push, workflow_dispatch]
