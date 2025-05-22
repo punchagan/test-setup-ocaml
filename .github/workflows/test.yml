@@ -11,6 +11,8 @@ jobs:
           cache-prefix: v2
           ocaml-compiler: 5.3.0
           opam-pin: false
+          opam-repositories: |
+            default: https://github.com/punchagan/opam-repository.git#add-mingw-shims-dep
       - name: Run opam tests
         run: |
           opam list
