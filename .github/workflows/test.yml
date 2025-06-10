@@ -17,6 +17,7 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install conf-libev
+          opam install conf-clang
+          clang --version
 
 on: [push, workflow_dispatch]
