@@ -17,6 +17,9 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install -vv conf-cairo
+          opam install -vv conf-python-3
+          echo "print('hello!')" > test.py
+          python3 test.py || echo "python3 not found?"
+          python test.py || echo "python not found?"
 
 on: [push, workflow_dispatch]
