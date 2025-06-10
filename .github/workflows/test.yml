@@ -17,6 +17,7 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install -vv conf-gtk3
+          opam install conf-libev || echo "libev is not available on Windows"
+          opam install conf-clang conf-cairo conf-mpfr conf-gtk3
 
 on: [push, workflow_dispatch]
