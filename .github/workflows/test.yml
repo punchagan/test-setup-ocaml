@@ -17,6 +17,6 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install -vv conf-mpfr
+          opam install -vv conf-gtk3
 
 on: [push, workflow_dispatch]
