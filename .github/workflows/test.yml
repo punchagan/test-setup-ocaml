@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: ocaml/setup-ocaml@v3
         with:
-          cache-prefix: v2
+          cache-prefix: v3
           ocaml-compiler: 5.3.0
           opam-pin: false
           opam-repositories: |
@@ -17,6 +17,6 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install -vv omake
+          opam install -vv conf-cairo
 
 on: [push, workflow_dispatch]
