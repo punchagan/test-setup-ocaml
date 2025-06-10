@@ -13,6 +13,10 @@ jobs:
           opam-pin: false
       - name: Run opam tests
         run: |
+          PACKAGES='libcairo2,libcairo-devel,libgtk3-devel,libgtk3_0'
+          CYGWIN_ROOT=$(cygpath -m /)
+          CYGWIN_EXE="$CYGWIN_ROOT"/setup-x86_64.exe
+          "$CYGWIN_EXE" -P "$PACKAGES" --quiet-mode -R "$CYGWIN_ROOT"
           opam --version
           opam list
           opam install conf-cairo
