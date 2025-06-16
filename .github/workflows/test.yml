@@ -17,7 +17,8 @@ jobs:
         run: |
           opam --version
           opam list
-          opam install conf-aclocal
+          opam install -vvvv coq
           opam install conf-emacs
+          opam install conf-aclocal
 
 on: [push, workflow_dispatch]
