@@ -4,21 +4,27 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
     steps:
-      - uses: ocaml/setup-ocaml@v3
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
+      - name: Install pre-requisites
+        run: |
+          pacman -Sy --noconfirm make gcc patch tar ca-certificates git \
+              rsync curl sudo bash nano coreutils xz ncurses diffutils \
+              unzip
+
+      - uses: ocaml/setup-ocaml@2f00658752ef80fd2390110442f9f1775462e0b5
         with:
-          cache-prefix: v3
           ocaml-compiler: 5.3.0
-          opam-pin: false
-          opam-repositories: |
-            default: https://github.com/punchagan/opam-repository.git#fix-win-packages
+          opam-disable-sandboxing: true
+
       - name: Run opam tests
         run: |
           opam --version
           opam list
-          opam install -vvvv coq
-          opam install conf-emacs
-          opam install conf-aclocal
 
 on: [push, workflow_dispatch]
