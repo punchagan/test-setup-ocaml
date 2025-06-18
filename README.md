@@ -1,3 +1,4 @@
 # test-setup-ocaml
 
-Just testing builds of `conf-pkg-config` on `setup-ocaml`, etc.
+Just testing builds of various OCaml packages using setup-ocaml on different
+platforms, etc.
